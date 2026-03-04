@@ -3,7 +3,6 @@ import { Row, Col, Alert } from "react-bootstrap";
 import UserCard from "./UserCard";
 
 function UserList({ users, onUserClick }) {
-  // TODO 1.3: Empty state — if users.length === 0, RETURN the exact <Alert variant="info">...</Alert>
   if (users.length === 0) {
     return (
       <Alert variant="info">
@@ -14,9 +13,11 @@ function UserList({ users, onUserClick }) {
 
   return (
     <Row>
-      <Col md={6} lg={4} className="mb-4">
-        <UserCard user={user} onUserClick={onUserClick}/>
-      </Col>
+      {users.map((user) => (
+        <Col md={6} lg={4} className="mb-4">
+          <UserCard user={user} onUserClick={onUserClick}/>
+        </Col>
+      ))}
     </Row>
   );
 }
