@@ -14,7 +14,7 @@ function UserList({ users, onUserClick }) {
   return (
     <Row>
       {users.map((user) => (
-        <Col md={6} lg={4} className="mb-4">
+        <Col key={user.id} md={6} lg={4} className="mb-4">
           <UserCard user={user} onUserClick={onUserClick}/>
         </Col>
       ))}
